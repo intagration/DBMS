@@ -1,0 +1,37 @@
+CREATE TABLE departments (
+    dept_id NUMBER PRIMARY KEY,      -- Department ID (Primary Key)
+    dept_name VARCHAR2(100) NOT NULL -- Department Name
+);
+INSERT INTO departments (dept_id, dept_name) VALUES (101, 'HR');
+INSERT INTO departments (dept_id, dept_name) VALUES (102, 'IT');
+INSERT INTO departments (dept_id, dept_name) VALUES (103, 'Marketing');
+INSERT INTO departments (dept_id, dept_name) VALUES (104, 'Sales');
+CREATE OR REPLACE PROCEDURE search_department (
+    p_dept_id IN NUMBER
+)
+IS
+    v_dept_name VARCHAR2(100); -- Variable to hold department name
+BEGIN
+    -- Query to search for the department name by department ID
+    SELECT dept_name
+    INTO v_dept_name
+    FROM departments
+    WHERE dept_id = p_dept_id;
+
+    -- Display the result
+    DBMS_OUTPUT.PUT_LINE('Department Name: ' || v_dept_name);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        -- Handle cases where the department ID does not exist
+        DBMS_OUTPUT.PUT_LINE('No department found with ID: ' || p_dept_id);
+    WHEN OTHERS THEN
+        -- Handle other exceptions
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+BEGIN
+    search_department(102); -- Search for department with ID 102
+    search_department(105); -- Search for a non-existing department
+END;
+/

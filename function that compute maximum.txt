@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION get_max_value (
+    value1 IN NUMBER,
+    value2 IN NUMBER
+) RETURN NUMBER
+IS
+    max_value NUMBER; -- Variable to hold the maximum value
+BEGIN
+    -- Logic to determine the maximum value
+    IF value1 > value2 THEN
+        max_value := value1;
+    ELSE
+        max_value := value2;
+    END IF;
+
+    RETURN max_value; -- Return the maximum value
+END;
+/
+SELECT get_max_value(10, 20) AS max_value FROM dual;

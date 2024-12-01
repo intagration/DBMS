@@ -1,0 +1,12 @@
+--Mathematical Functions:
+SELECT ABS(-25) AS Absolute_Value FROM DUAL;
+SELECT CEIL(4.2) AS Ceil_Value FROM DUAL;
+SELECT FLOOR(4.8) AS Floor_Value FROM DUAL;
+SELECT MOD(15, 4) AS Remainder FROM DUAL;
+SELECT POWER(3, 4) AS Result FROM DUAL;
+--String Functions
+SELECT UPPER('hello world') AS Uppercase_Text FROM DUAL;
+SELECT LOWER('HELLO WORLD') AS Lowercase_Text FROM DUAL;
+SELECT INITCAP('hello world') AS Initcap_Text FROM DUAL;
+SELECT CONCAT('Hello', ' World') AS Concatenated_Text FROM DUAL;
+SELECT SUBSTR('Oracle Database', 1, 6) AS Substring FROM DUAL;

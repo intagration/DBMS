@@ -1,0 +1,9 @@
+/*To delete students from Student2 table whose rollno is same as that in Student1 table and having location as Chennai */
+SQL>DELETE FROM Student2 WHERE ROLL_NO IN ( SELECT ROLL_NO  
+FROM Student1 WHERE LOCATION = ’chennai’); 
+ii. 
+/*To change the name of student2 table to Ram where the  location is same as the 
+location of Raj and Ravi.*/
+
+SQL>UPDATE Student2 SET name= ‘Ram ’ WHERE LOCATION IN ( SELECT 
+LOCATION FROM Student1 WHERE NAME IN (‘Raj’,’Ravi’));

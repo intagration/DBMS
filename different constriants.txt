@@ -1,0 +1,12 @@
+CREATE TABLE departments (
+    dept_id NUMBER(5) PRIMARY KEY, -- Primary key constraint
+    dept_name VARCHAR2(50) NOT NULL UNIQUE -- NOT NULL and UNIQUE constraints
+);
+CREATE TABLE employees (
+    emp_id NUMBER(5) PRIMARY KEY, -- Primary key constraint
+    emp_name VARCHAR2(50) NOT NULL, -- NOT NULL constraint
+    dept_id NUMBER(5), -- Foreign key will reference this
+    salary NUMBER(10, 2) CHECK (salary > 0), -- Check constraint for positive salary
+    email VARCHAR2(100) UNIQUE, -- Unique constraint for email
+    CONSTRAINT fk_department FOREIGN KEY (dept_id) REFERENCES departments(dept_id) -- Foreign key constraint
+);

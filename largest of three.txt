@@ -1,0 +1,19 @@
+DECLARE
+   num1 NUMBER := 15; -- Replace with your first number
+   num2 NUMBER := 25; -- Replace with your second number
+   num3 NUMBER := 20; -- Replace with your third number
+   largest NUMBER;
+BEGIN
+   -- Determine the largest number
+   IF num1 >= num2 AND num1 >= num3 THEN
+      largest := num1;
+   ELSIF num2 >= num1 AND num2 >= num3 THEN
+      largest := num2;
+   ELSE
+      largest := num3;
+   END IF;
+
+   -- Display the result
+   DBMS_OUTPUT.PUT_LINE('The largest number is: ' || largest);
+END;
+/
